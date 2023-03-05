@@ -13,6 +13,8 @@
 #include "v5.h"
 #include "v5lvgl.h"
 
+#include "filesystem.h"
+
 // necessary private V5 API functions
 void  vexTaskAdd( int (* callback)(void), int interval, char const *label );
 void  vexTaskSleep( uint32_t time );
@@ -115,6 +117,9 @@ v5_lv_init() {
     indev_drv.type = LV_INDEV_TYPE_POINTER;
     indev_drv.read_cb = touch_read;
     lv_indev_drv_register(&indev_drv);
+
+    // Initialize filesystem driver
+    init_fs_driver();
 
     lv_obj_t* page = lv_obj_create(NULL);
     lv_obj_set_size(page, 480, 240);
