@@ -45,6 +45,13 @@ int demo() {
     lv_label_set_text(myButtonLabel, "Click the Button"); //sets label text
     lv_obj_center(myButtonLabel);
 
+    lv_obj_t * test_img = lv_img_create(lv_scr_act());
+    lv_obj_set_size(test_img, 128, 128);
+    lv_obj_align(test_img, LV_ALIGN_BOTTOM_LEFT, 10, -10);
+    lv_obj_set_style_bg_opa(test_img, 1, LV_PART_MAIN);
+    lv_obj_set_style_bg_color(test_img, lv_color_hex(0xff0000), LV_PART_MAIN);
+    lv_img_set_src(test_img, "S:test_img.bin");
+
     return(0);
 }
 
